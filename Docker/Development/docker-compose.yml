@@ -1,0 +1,50 @@
+version: '3.5'
+services:
+
+  restwebdev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    restart: always
+    volumes:
+      - ../../:/workspace
+    environment:
+      - DATABASE_URL=postgres://user:password@postgres/restwebdev 
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=restwebdev
+
+    
+    depends_on: 
+      - pictrs
+      - postgres
+ 
+  postgres:
+    image: postgres:12-alpine
+    ports:
+      # use a different port so it doesnt conflict with postgres running on the host
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=restwebdev
+    volumes:
+      - ./volumes/postgres:/var/lib/postgresql/data
+    restart: always
+  pgadmin4: #Todo: build this guy in a ubi
+    user: root # Needed on first start up because it create a few directories in privledged container spaces.
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+        PGADMIN_DEFAULT_EMAIL: "email@email.com"
+        PGADMIN_DEFAULT_PASSWORD: "password"
+    volumes:
+        - ./volumes/pgadmin/:/var/lib/pgadmin
+    ports:
+    - "8092:80"
+    depends_on:
+    - postgres
+
+     

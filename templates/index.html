@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rust web development</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+  <section class="section">
+    <div class="container">
+  <h1 class="title">Sign up</h1>
+
+    <h3 class="subtitle">Create User</h3>
+
+    <form action="/register" method="post">
+
+    <div class="field">
+      <p class="control has-icons-left has-icons-right">
+        <input value="{{ f.username }}" class="input {% if not check.username.valid %} is-danger {% endif %}" type="text" name="username" placeholder="User Name">
+        
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+        <span class="icon is-small is-right">
+          <i class="fas fa-check"></i>
+        </span>
+      </p>
+      {% if not check.username.valid %}
+      <p class="help is-danger">{{ check.username.error_message }}</p>
+      {% endif %}
+
+    </div>
+    <div class="field">
+      <p class="control has-icons-left has-icons-right">
+        <input value="{{ f.email }}" class="input {% if not check.email.valid %} is-danger {% endif %}" type="email" name="email" placeholder="Email">
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+        <span class="icon is-small is-right">
+          <i class="fas fa-check"></i>
+        </span>
+      </p>
+      {% if not check.email.valid %}
+      <p class="help is-danger">{{ check.email.error_message }}</p>
+      {% endif %}
+    </div>
+    <div class="field">
+      <p class="control has-icons-left">
+        <input class="input {% if not check.password.valid %} is-danger {% endif %}" type="password" name="password" placeholder="Password">
+        <span class="icon is-small is-left">
+          <i class="fas fa-lock"></i>
+        </span>
+      </p>
+      {% if not check.password.valid %}
+      <p class="help is-danger">{{ check.password.error_message }}</p>
+      {% endif %}
+    </div>
+    <div class="field">
+      <p class="control has-icons-left">
+        <input class="input {% if not check.confirmpassword.valid %} is-danger {% endif %}" type="password" name="confirmpassword" placeholder="Confirm Password">
+        <span class="icon is-small is-left">
+          <i class="fas fa-lock"></i>
+        </span>
+      </p>
+      {% if not check.confirmpassword.valid %}
+      <p class="help is-danger">{{ check.confirmpassword.error_message }}</p>
+      {% endif %}
+    </div>
+    <div class="field">
+      <p class="control">
+        <input class="button is-dark" type="submit" value="Register"/>
+      </p>
+    </div>
+  </form>
+
+</div>
+</section>
+</body>
+</html>
