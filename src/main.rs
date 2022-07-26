@@ -33,8 +33,8 @@ async fn main() -> std::io::Result<()> {
             .app_data(web::Data::new(tera))
             .app_data(web::Data::new(pool.clone()))
             .wrap(middleware::Logger::default()) // enable logger
-            .configure(spacial_learning::routes::routes)
-            .service(web::scope("").wrap(spacial_learning::template_logic::errors::error_handlers()))
+            .configure(rustwebdev::routes::routes)
+            .service(web::scope("").wrap(rustwebdev::template_logic::errors::error_handlers()))
     })
     .bind(("0.0.0.0", 8080))?
     .run()

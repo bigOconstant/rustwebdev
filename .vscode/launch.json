@@ -7,16 +7,16 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug unit tests in library 'spacial-learning'",
+            "name": "Debug unit tests in library 'rustwebdev'",
             "cargo": {
                 "args": [
                     "test",
                     "--no-run",
                     "--lib",
-                    "--package=spacial-learning"
+                    "--package=rustwebdev"
                 ],
                 "filter": {
-                    "name": "spacial-learning",
+                    "name": "rustwebdev",
                     "kind": "lib"
                 }
             },
@@ -26,15 +26,15 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug executable 'spacial-learning'",
+            "name": "Debug executable 'rustwebdev'",
             "cargo": {
                 "args": [
                     "build",
-                    "--bin=spacial-learning",
-                    "--package=spacial-learning"
+                    "--bin=rustwebdev",
+                    "--package=rustwebdev"
                 ],
                 "filter": {
-                    "name": "spacial-learning",
+                    "name": "rustwebdev",
                     "kind": "bin"
                 }
             },
@@ -44,16 +44,16 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug unit tests in executable 'spacial-learning'",
+            "name": "Debug unit tests in executable 'rustwebdev'",
             "cargo": {
                 "args": [
                     "test",
                     "--no-run",
-                    "--bin=spacial-learning",
-                    "--package=spacial-learning"
+                    "--bin=rustwebdev",
+                    "--package=rustwebdev"
                 ],
                 "filter": {
-                    "name": "spacial-learning",
+                    "name": "rustwebdev",
                     "kind": "bin"
                 }
             },

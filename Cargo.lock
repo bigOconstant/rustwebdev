@@ -1419,6 +1419,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "rustwebdev"
+version = "0.1.0"
+dependencies = [
+ "actix-web",
+ "chrono",
+ "diesel",
+ "dotenv",
+ "env_logger",
+ "rand 0.7.3",
+ "regex",
+ "rust-argon2",
+ "serde",
+ "tera",
+ "tokio-pg-mapper",
+ "tokio-pg-mapper-derive",
+ "tokio-postgres",
+]
+
+[[package]]
 name = "ryu"
 version = "1.0.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1575,25 +1594,6 @@ checksum = "66d72b759436ae32898a2af0a14218dbf55efde3feeb170eb623637db85ee1e0"
 dependencies = [
  "libc",
  "winapi",
-]
-
-[[package]]
-name = "spacial-learning"
-version = "0.1.0"
-dependencies = [
- "actix-web",
- "chrono",
- "diesel",
- "dotenv",
- "env_logger",
- "rand 0.7.3",
- "regex",
- "rust-argon2",
- "serde",
- "tera",
- "tokio-pg-mapper",
- "tokio-pg-mapper-derive",
- "tokio-postgres",
 ]
 
 [[package]]
